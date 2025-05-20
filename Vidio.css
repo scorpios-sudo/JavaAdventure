@@ -1,0 +1,63 @@
+/* stylelint-disable @stylistic/selector-list-comma-newline-after */
+
+$utilities: (
+  "opacity": (
+    property: opacity,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      75: .75,
+      100: 1,
+    )
+  )
+);
+
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: .25; }
+.opacity-50 { opacity: .5; }
+.opacity-75 { opacity: .75; }
+.opacity-100 { opacity: 1; }
+
+$utilities: (
+  "text-decoration": (
+    property: text-decoration,
+    values: none underline line-through
+  )
+);
+
+.text-decoration-none { text-decoration: none !important; }
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-line-through { text-decoration: line-through !important; }
+
+values: none underline line-through
+
+values: (
+  0: 0,
+  25: .25,
+  50: .5,
+  75: .75,
+  100: 1,
+)
+
+values: $position-values
+
+$utilities: (
+  "opacity": (
+    property: opacity,
+    class: o,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      75: .75,
+      100: 1,
+    )
+  )
+);
+
+.o-0 { opacity: 0 !important; }
+.o-25 { opacity: .25 !important; }
+.o-50 { opacity: .5 !important; }
+.o-75 { opacity: .75 !important; }
+.o-100 { opacity: 1 !important; }

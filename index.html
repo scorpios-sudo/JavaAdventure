@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Java Aventure </title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+  </symbol>
+  <symbol id="cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+</svg>
+
+<div class="card text-bg-dark">
+  <img src="Bromo Mountain 🌄🇮🇩.jpeg" width="200" height="200" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h3 class="fst-italic">JavaAventure</h3>
+    <h3 class="fst-italic">Paket Wisata Bromo</h3>
+    <h3 class="fst-italic"> Kawah Ijen | Tumpak Sewu | Malang</h3>
+    <p class="card-text"></p>
+    <p class="card-text"><small></small></p>
+  </div>
+</div>
+
+<!-- <div class="container"> 
+  <header class="border-bottom lh-1 py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+      </div>
+      <div class="col-4 text-center">
+        <h3 class="fst-italic">JavaAventure</h3>
+        <h3 class="fst-italic">Paket Wisata Bromo | Kawah Ijen | Tumpak Sewu | Malang</h3>   
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="link-secondary" href="#" aria-label="Search">
+        </a>
+      </div>
+    </div>
+  </header> -->
+
+  <div class="nav-scroller py-1 mb-3 border-bottom">
+    <nav class="nav nav-underline justify-content-between">
+      <a class="nav-item nav-link link-body-emphasis" href="#Pelayanan 1">Pelayanan</a>
+      <a class="nav-item nav-link link-body-emphasis" href="index (2).html">Paket</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+    </nav>
+  </div>
+</div>
+
+<main class="container">
+  <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">
+    <div class="col-lg-6 px-0">
+      <h1 class="display-4 fst-italic">Java Adventure</h1>
+      <p class="lead my-3">Java Adventure adalah Travel Agent yang berpengalaman dalam melayani tour wisata, Khususnya di Bromo,Kawah Ijen,Tumpak Sewu dan Malang. </p>
+      <p class="lead mb-0"><a href="#about 1" class="text-body-eJavaaventure|Paket Wisata Bromo| Kawah Ijen| Tumpak Sewu| Malangmphasis fw-bold">Continue reading...</a></p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">Bromo</strong>
+          <h3 class="mb-0">Pilih Paket</h3>
+          <div class="mb-1 text-body-secondary">Nov 12</div>
+          <p class="card-text mb-auto">.......</p>
+          <a href="index (2).html" class="icon-link gap-1 icon-link-hover stretched-link">
+            Selengkapnya
+            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="Desain tanpa judul (1).png" class="img-thumbnail" alt="..." height="250" width="250"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success-emphasis">Photographer</strong>
+          <h3 class="mb-0">History photo</h3>
+          <div class="mb-1 text-body-secondary">Nov 11</div>
+          <p class="mb-auto">.......</p>
+          <a href="https://www.instagram.com/java_advanturee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon-link gap-1 icon-link-hover stretched-link">
+            Continue reading
+            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="photo.jpg" class="img-thumbnail" alt="..." height="250" width="250" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-5" id="Pelayanan 1">
+    <div class="col-md-8">     
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Pelayanan
+      </h3>
+
+      <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1">Paket Wisata Gunung Bromo</h2>
+         <p>Kami menyediakan paket tour terbaik untuk anda. ada banyak paket tour yang bisa pilih dan anda nikmati mulai harga 300.000.
+          Tersedia juga paket wisata Bromo Malang, Paket tour kawah ijen, paket lava tour semeru. Dan masih banyak lagi paket-paket yang menarik.</p>
+        <hr>
+        <p>Cari dan temukan paket yang sesuai dengan keinginan kalian, nikmati harga promo, murah dan berkualitas yang kami tawarkan. Tour dengan Jawa Adventure akan memberikan kenyamanan dan kenangan yang tidak akan terlupakan, apalagi saat bersama keluarga, pasangan dan orang-orang terpenting dalam hidup kita. Banyak Paket di atas ini yang bisa Anda pertimbangkan sebelum memutuskan ungtuk menghubungi kami. kami siap melayani konsultasi perjalanan wisata Anda.</p>
+
+        <div id="Reposted History 1">
+          <h4 class="fst-italic">Reposted History</h4>
+          <ul class="list-unstyled">
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (3).html">
+                <img src="0.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Open Trip Bromo</h6>
+                  <small class="text-body-secondary">March 12, 2025</small>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (4).html">
+                <img src="1.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Private Trip Bromo</h6>
+                  <small class="text-body-secondary">March 14, 2025</small>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (5).html">
+                <img src="3.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Private Trip Bromo-Tumpak Sewu</h6>
+                  <small class="text-body-secondary">March 10, 2025</small>
+                </div>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (3).html">
+                    <img src="2.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Private Trip Bromo-Kawah Ijen</h6>
+                      <small class="text-body-secondary">March 12, 2025</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (4).html">
+                    <img src="4.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Private Trip Bromo Kawah Ijen-Tumpak Sewu</h6>
+                      <small class="text-body-secondary">March 14, 2025</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (5).html">
+                    <img src="5.png" class="img-thumbnail" alt="..." height="150" width="150" />
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Private Trip Bromo Kawah Ijen-Tumpak Sewu-Malang</h6>
+                      <small class="text-body-secondary">March 10, 2025</small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Kenapa harus pilih kami</h2>
+        <p> Karena kami selalu mengutamakan kenyamanan dan kepuasaan terhadap customer yang memilih paket dari kami, dan kami selalu mempersiapkan semua yang di perlukan saat tour berlangsung.  </p>
+       <h3>Hal yang kami persiapkan saat Tour</h3>
+        <p></p>
+        <ul>
+          <li>Transportasi Terbaik</li>
+          <li>Driver yang sangat ramah</li>
+          <li>Hotel/Homestay yang bersih dan nyaman</li>
+          <li>Guide yang berpengalaman</li>
+         </ul>       
+         </dl>
+        <h2>Tentang Kami</h2>
+        <ul>
+        <p>Java Adventure adalah Travel Agent yang menyediakan berbagai paket wisata menarik untuk anda. Kami menyediakan paket tour Bromo, Paket tour Kawah Ijen, Paket tour Tumpak Sewu dan Paket Tour Malang.</p>
+        <p>Jl. Madakaripura Lumbang Probolinggo</p>
+        <p>Telp : 081252530201</p>
+      </article>
+
+      <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary rounded-pill" href="https://wa.me/6281252530201">Order</a>
+        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true"></a>
+      </nav>
+
+    </div>
+    <div class="col-md-4" id="about 1">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">Gunung Bromo atau dalam bahasa Tengger dieja "Brama", juga disebut Kaldera Tengger, adalah sebuah gunung berapi aktif di Jawa Timur, Indonesia. Wikipedia. </p>
+        </div
+ -->
+        <!-- <div id="Reposted History 1">
+          <h4 class="fst-italic">Reposted History</h4>
+          <ul class="list-unstyled">
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHFL3DUy0UY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+                <img src="photo 1.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Bromo = Tumpak Sewu</h6>
+                  <small class="text-body-secondary">March 12, 2025</small>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHKxEXRSZP_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+                <img src="photo 2.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Bromo = Ijen - Sewu</h6>
+                  <small class="text-body-secondary">March 14, 2025</small>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHAQR7-SFa1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+                <img src="photo 3.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Bromo = Kawah Ijen</h6>
+                  <small class="text-body-secondary">March 10, 2025</small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div> -->
+
+        <div class="p-4">
+          <h4 class="fst-italic">Archives</h4>
+          <ol class="list-unstyled mb-0">
+            <li><a href="#"> 2025</a></li>
+          </ol>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Social Media</h4>
+          <ol class="list-unstyled">
+            <li><a href="https://wa.me/6281252530201">Whatsapp</a></li>
+            <li><a href="https://www.instagram.com/java_advanturee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1EcDup9jH9/?mibextid=wwXIfr">Facebook</a></li>
+            <li><a href="https://www.tiktok.com/@fotografer_bromo?_t=ZS-8vXonTzYhSq&_r=1">TikTok</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+  <p>Web Builder By </p> <a href="https://www.instagram.com/condex.s?igsh=MW94NXQzYmU3a2oxMg==">@Condex.s</a> and <a href=https://www.instagram.com/rickydwiirawan23?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==>@rickydwiirawan23</a>.</p>
+  <p class="mb-0">
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
