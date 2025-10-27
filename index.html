@@ -1,406 +1,1292 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.122.0">
-    <title>Java Aventure </title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MountainExplorer | Petualangan Gunung Terbaik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        :root {
+            --primary: #1a5e63;
+            --secondary: #4c956c;
+            --accent: #d68c45;
+            --light: #fefee3;
+            --dark: #1d3557;
+            --snow: #f1faee;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-      }
 
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
 
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
+        header.scrolled {
+            padding: 15px 0;
+        }
 
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--light);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(214, 140, 69, 0.4);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(214, 140, 69, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: rgba(214, 140, 69, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #e9ecef;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 25px;
+            background: rgba(26, 94, 99, 0.3);
+            border-radius: 15px;
+            flex: 1;
+            border: 1px solid rgba(214, 140, 69, 0.1);
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            background: rgba(26, 94, 99, 0.5);
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .stat-box p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Destinations Section */
+        .destinations {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .destination-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid rgba(214, 140, 69, 0.1);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(214, 140, 69, 0.3);
+            border-color: rgba(214, 140, 69, 0.3);
+        }
+
+        .destination-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.1);
+        }
+
+        .destination-info {
+            padding: 30px;
+        }
+
+        .destination-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .destination-info p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .destination-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .destination-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .rating {
+            color: var(--accent);
+        }
+
+        /* Activities Section */
+        .activities {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .activity-card {
+            background: rgba(22, 33, 62, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(214, 140, 69, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+        }
+
+        .activity-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(214, 140, 69, 0.2);
+            background: rgba(22, 33, 62, 0.9);
+        }
+
+        .activity-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover .activity-icon {
+            transform: scale(1.2);
+        }
+
+        .activity-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .activity-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(214, 140, 69, 0.1);
+            text-align: center;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .client-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--accent);
+        }
+
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+
+        .client-details p {
+            color: var(--accent);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -30px;
+            left: -20px;
+        }
+
+        .testimonial-text::after {
+            bottom: -60px;
+            right: -20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            width: 40px;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+
+        .contact-text p, .contact-text a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(214, 140, 69, 0.1);
+            color: var(--accent);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(26, 94, 99, 0.2);
+            border: 1px solid rgba(214, 140, 69, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(214, 140, 69, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #0f172a, #1a5e63);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(214, 140, 69, 0.1);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-col p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .footer-col .social-links {
+            margin-top: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(214, 140, 69, 0.1);
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.95);
+                width: 300px;
+                height: calc(100vh - 80px);
+                padding: 40px 20px;
+                transition: var(--transition);
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            nav li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-stats {
+                flex-direction: column;
+            }
+            
+            .destination-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
     </style>
-
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-  </head>
-  <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-      </symbol>
-    </svg>
-
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-  <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10"/>
-    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
-  </symbol>
-  <symbol id="cart" viewBox="0 0 16 16">
-    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-  </symbol>
-  <symbol id="chevron-right" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-  </symbol>
-</svg>
-
-<div class="card text-bg-dark">
-  <img src="Bromo Mountain 🌄🇮🇩.jpeg" width="200" height="200" class="card-img" alt="...">
-  <div class="card-img-overlay">
-    <h3 class="fst-italic">JavaAventure</h3>
-    <h3 class="fst-italic">Paket Wisata Bromo</h3>
-    <h3 class="fst-italic"> Kawah Ijen | Tumpak Sewu | Malang</h3>
-    <p class="card-text"></p>
-    <p class="card-text"><small></small></p>
-  </div>
-</div>
-
-<!-- <div class="container"> 
-  <header class="border-bottom lh-1 py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-      </div>
-      <div class="col-4 text-center">
-        <h3 class="fst-italic">JavaAventure</h3>
-        <h3 class="fst-italic">Paket Wisata Bromo | Kawah Ijen | Tumpak Sewu | Malang</h3>   
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="link-secondary" href="#" aria-label="Search">
-        </a>
-      </div>
-    </div>
-  </header> -->
-
-  <div class="nav-scroller py-1 mb-3 border-bottom">
-    <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="#Pelayanan 1">Pelayanan</a>
-      <a class="nav-item nav-link link-body-emphasis" href="index (2).html">Paket</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
-    </nav>
-  </div>
-</div>
-
-<main class="container">
-  <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">
-    <div class="col-lg-6 px-0">
-      <h1 class="display-4 fst-italic">Java Adventure</h1>
-      <p class="lead my-3">Java Adventure adalah Travel Agent yang berpengalaman dalam melayani tour wisata, Khususnya di Bromo,Kawah Ijen,Tumpak Sewu dan Malang. </p>
-      <p class="lead mb-0"><a href="#about 1" class="text-body-eJavaaventure|Paket Wisata Bromo| Kawah Ijen| Tumpak Sewu| Malangmphasis fw-bold">Continue reading...</a></p>
-    </div>
-  </div>
-
-  <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary-emphasis">Bromo</strong>
-          <h3 class="mb-0">Pilih Paket</h3>
-          <div class="mb-1 text-body-secondary">Nov 12</div>
-          <p class="card-text mb-auto">.......</p>
-          <a href="index (2).html" class="icon-link gap-1 icon-link-hover stretched-link">
-            Selengkapnya
-            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-          </a>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                <h1>Mountain<span>Explorer</span></h1>
+            </div>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#destinations">Destinasi</a></li>
+                    <li><a href="#activities">Aktivitas</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="cta-button">Pesan Sekarang</a>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img src="Desain tanpa judul (1).png" class="img-thumbnail" alt="..." height="250" width="250"/>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success-emphasis">Photographer</strong>
-          <h3 class="mb-0">History photo</h3>
-          <div class="mb-1 text-body-secondary">Nov 11</div>
-          <p class="mb-auto">.......</p>
-          <a href="https://www.instagram.com/java_advanturee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon-link gap-1 icon-link-hover stretched-link">
-            Continue reading
-            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-          </a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img src="photo.jpg" class="img-thumbnail" alt="..." height="250" width="250" />
-        </div>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <div class="row g-5" id="Pelayanan 1">
-    <div class="col-md-8">     
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        Pelayanan
-      </h3>
-
-      <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-1">Paket Wisata Gunung Bromo</h2>
-         <p>Kami menyediakan paket tour terbaik untuk anda. ada banyak paket tour yang bisa pilih dan anda nikmati mulai harga 300.000.
-          Tersedia juga paket wisata Bromo Malang, Paket tour kawah ijen, paket lava tour semeru. Dan masih banyak lagi paket-paket yang menarik.</p>
-        <hr>
-        <p>Cari dan temukan paket yang sesuai dengan keinginan kalian, nikmati harga promo, murah dan berkualitas yang kami tawarkan. Tour dengan Jawa Adventure akan memberikan kenyamanan dan kenangan yang tidak akan terlupakan, apalagi saat bersama keluarga, pasangan dan orang-orang terpenting dalam hidup kita. Banyak Paket di atas ini yang bisa Anda pertimbangkan sebelum memutuskan ungtuk menghubungi kami. kami siap melayani konsultasi perjalanan wisata Anda.</p>
-
-        <div id="Reposted History 1">
-          <h4 class="fst-italic">Reposted History</h4>
-          <ul class="list-unstyled">
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (3).html">
-                <img src="0.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Open Trip Bromo</h6>
-                  <small class="text-body-secondary">March 12, 2025</small>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Petualangan Gunung <span>Tak Terlupakan</span></h1>
+                <p>Temukan keindahan alam pegunungan dengan pengalaman petualangan yang aman dan menyenangkan bersama para pemandu profesional kami.</p>
+                <div class="hero-buttons">
+                    <a href="#destinations" class="cta-button">Jelajahi Destinasi</a>
+                    <a href="#about" class="cta-button btn-outline">Tentang Kami</a>
                 </div>
-              </a>
-            </li>
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (4).html">
-                <img src="1.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Private Trip Bromo</h6>
-                  <small class="text-body-secondary">March 14, 2025</small>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (5).html">
-                <img src="3.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Private Trip Bromo-Tumpak Sewu</h6>
-                  <small class="text-body-secondary">March 10, 2025</small>
-                </div>
-                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (3).html">
-                    <img src="2.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                    <div class="col-lg-8">
-                      <h6 class="mb-0">Private Trip Bromo-Kawah Ijen</h6>
-                      <small class="text-body-secondary">March 12, 2025</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Kami</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Membawa Anda ke Puncak Petualangan</h3>
+                    <p>MountainExplorer telah menjadi pemimpin dalam wisata pegunungan sejak 2010. Dengan tim pemandu profesional yang berpengalaman, kami berkomitmen untuk memberikan pengalaman mendaki dan petualangan yang aman, menyenangkan, dan tak terlupakan.</p>
+                    <p>Kami percaya bahwa alam pegunungan memiliki kekuatan untuk menyegarkan jiwa dan menantang batas kemampuan diri. Setiap perjalanan dirancang untuk memberi Anda pengalaman mendalam dengan alam sekaligus menjaga kelestarian lingkungan.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h4>13+</h4>
+                            <p>Tahun Pengalaman</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>500+</h4>
+                            <p>Klien Global</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>120+</h4>
+                            <p>Tim Profesional</p>
+                        </div>
                     </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (4).html">
-                    <img src="4.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                    <div class="col-lg-8">
-                      <h6 class="mb-0">Private Trip Bromo Kawah Ijen-Tumpak Sewu</h6>
-                      <small class="text-body-secondary">March 14, 2025</small>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tim Pemandu">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinasi Populer</h2>
+            </div>
+            
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1199&q=80" alt="Gunung Rinjani">
                     </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="index (5).html">
-                    <img src="5.png" class="img-thumbnail" alt="..." height="150" width="150" />
-                    <div class="col-lg-8">
-                      <h6 class="mb-0">Private Trip Bromo Kawah Ijen-Tumpak Sewu-Malang</h6>
-                      <small class="text-body-secondary">March 10, 2025</small>
+                    <div class="destination-info">
+                        <h3>Gunung Rinjani</h3>
+                        <p>Pendakian menantang ke gunung berapi aktif kedua tertinggi di Indonesia dengan pemandangan danau kawah yang memukau.</p>
+                        <div class="destination-meta">
+                            <div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(128 Reviews)</span>
+                                </div>
+                            </div>
+                            <div class="destination-price">Rp 1.850.000</div>
+                        </div>
+                    </div>
                 </div>
-              </a>
-            </li>
-          </ul>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1464823063530-08f10ed1a2dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Gunung Bromo">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Gunung Bromo</h3>
+                        <p>Pengalaman menakjubkan menyaksikan matahari terbit di atas lautan pasir dan kawah berasap.</p>
+                        <div class="destination-meta">
+                            <div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(245 Reviews)</span>
+                                </div>
+                            </div>
+                            <div class="destination-price">Rp 1.250.000</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1588666309990-68bc38c476b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1183&q=80" alt="Gunung Semeru">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Gunung Semeru</h3>
+                        <p>Pendakian ke puncak tertinggi di Pulau Jawa melewati Ranu Kumbolo yang indah dan puncak Mahameru.</p>
+                        <div class="destination-meta">
+                            <div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(187 Reviews)</span>
+                                </div>
+                            </div>
+                            <div class="destination-price">Rp 2.150.000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <h2>Kenapa harus pilih kami</h2>
-        <p> Karena kami selalu mengutamakan kenyamanan dan kepuasaan terhadap customer yang memilih paket dari kami, dan kami selalu mempersiapkan semua yang di perlukan saat tour berlangsung.  </p>
-       <h3>Hal yang kami persiapkan saat Tour</h3>
-        <p></p>
-        <ul>
-          <li>Transportasi Terbaik</li>
-          <li>Driver yang sangat ramah</li>
-          <li>Hotel/Homestay yang bersih dan nyaman</li>
-          <li>Guide yang berpengalaman</li>
-         </ul>       
-         </dl>
-        <h2>Tentang Kami</h2>
-        <ul>
-        <p>Java Adventure adalah Travel Agent yang menyediakan berbagai paket wisata menarik untuk anda. Kami menyediakan paket tour Bromo, Paket tour Kawah Ijen, Paket tour Tumpak Sewu dan Paket Tour Malang.</p>
-        <p>Jl. Madakaripura Lumbang Probolinggo</p>
-        <p>Telp : 081252530201</p>
-      </article>
-
-      <nav class="blog-pagination" aria-label="Pagination">
-        <a class="btn btn-outline-primary rounded-pill" href="https://wa.me/6281252530201">Order</a>
-        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true"></a>
-      </nav>
-
-    </div>
-    <div class="col-md-4" id="about 1">
-      <div class="position-sticky" style="top: 2rem;">
-        <div class="p-4 mb-3 bg-body-tertiary rounded">
-          <h4 class="fst-italic">About</h4>
-          <p class="mb-0">Gunung Bromo atau dalam bahasa Tengger dieja "Brama", juga disebut Kaldera Tengger, adalah sebuah gunung berapi aktif di Jawa Timur, Indonesia. Wikipedia. </p>
-        </div
- -->
-        <!-- <div id="Reposted History 1">
-          <h4 class="fst-italic">Reposted History</h4>
-          <ul class="list-unstyled">
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHFL3DUy0UY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                <img src="photo 1.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Bromo = Tumpak Sewu</h6>
-                  <small class="text-body-secondary">March 12, 2025</small>
+    <!-- Activities Section -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Aktivitas Petualangan</h2>
+            </div>
+            
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Pendakian Gunung</h3>
+                    <p>Petualangan mendaki ke puncak gunung dengan pemandu berpengalaman dan peralatan lengkap.</p>
                 </div>
-              </a>
-            </li>
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHKxEXRSZP_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                <img src="photo 2.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Bromo = Ijen - Sewu</h6>
-                  <small class="text-body-secondary">March 14, 2025</small>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-campground"></i>
+                    </div>
+                    <h3>Kemah Alam</h3>
+                    <p>Pengalaman menginap di alam terbuka dengan fasilitas kemah yang nyaman dan aman.</p>
                 </div>
-              </a>
-            </li>
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://www.instagram.com/p/DHAQR7-SFa1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                <img src="photo 3.jpg" class="img-thumbnail" alt="..." height="150" width="150" />
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Bromo = Kawah Ijen</h6>
-                  <small class="text-body-secondary">March 10, 2025</small>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Ekowisata</h3>
+                    <p>Jelajahi keanekaragaman hayati pegunungan sambil belajar tentang konservasi alam.</p>
                 </div>
-              </a>
-            </li>
-          </ul>
-        </div> -->
-
-        <div class="p-4">
-          <h4 class="fst-italic">Archives</h4>
-          <ol class="list-unstyled mb-0">
-            <li><a href="#"> 2025</a></li>
-          </ol>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Fotografi Alam</h3>
+                    <p>Workshop fotografi dengan pemandangan alam pegunungan yang menakjubkan.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="p-4">
-          <h4 class="fst-italic">Social Media</h4>
-          <ol class="list-unstyled">
-            <li><a href="https://wa.me/6281252530201">Whatsapp</a></li>
-            <li><a href="https://www.instagram.com/java_advanturee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
-            <li><a href="https://www.facebook.com/share/1EcDup9jH9/?mibextid=wwXIfr">Facebook</a></li>
-            <li><a href="https://www.tiktok.com/@fotografer_bromo?_t=ZS-8vXonTzYhSq&_r=1">TikTok</a></li>
-          </ol>
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Petualangan</h2>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mountain Adventure">
+                    <div class="gallery-overlay">
+                        <h4>Pendakian Rinjani</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mountain Camping">
+                    <div class="gallery-overlay">
+                        <h4>Kemah di Bromo</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mountain Sunrise">
+                    <div class="gallery-overlay">
+                        <h4>Sunrise di Semeru</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-</main>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka</h2>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        </div>
+                        <div class="client-details">
+                            <h4>Budi Santoso</h4>
+                            <p>Pendaki Bromo</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        Pengalaman melihat matahari terbit di Bromo bersama MountainExplorer sungguh luar biasa! Pemandu sangat profesional dan ramah. Semua fasilitas disiapkan dengan baik. Pasti akan menggunakan jasa mereka lagi untuk pendakian berikutnya.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-  <p>Web Builder By </p> <a href="https://www.instagram.com/condex.s?igsh=MW94NXQzYmU3a2oxMg==">@Condex.s</a> and <a href=https://www.instagram.com/rickydwiirawan23?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==>@rickydwiirawan23</a>.</p>
-  <p class="mb-0">
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h4>Alamat Kantor</h4>
+                                <p>Jl. Pegunungan Indah No. 123, Malang, Jawa Timur</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="contact-text">
+                                <h4>Telepon</h4>
+                                <p>+62 123 4567 8910</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@mountainexplorer.com">info@mountainexplorer.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="contact-text">
+                                <h4>Jam Operasional</h4>
+                                <p>Senin-Jumat: 08:00 - 17:00</p>
+                                <p>Sabtu: 09:00 - 15:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Ikuti Petualangan Kami</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Pesan Perjalanan</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telepon</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Destinasi</label>
+                            <select id="destination" required>
+                                <option value="">Pilih Destinasi</option>
+                                <option value="rinjani">Gunung Rinjani</option>
+                                <option value="bromo">Gunung Bromo</option>
+                                <option value="semeru">Gunung Semeru</option>
+                                <option value="lainnya">Destinasi Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>MountainExplorer</h4>
+                    <p>Menyediakan pengalaman petualangan pegunungan yang aman, menyenangkan, dan tak terlupakan dengan pemandu profesional dan peralatan lengkap.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Tautan Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#destinations">Destinasi</a></li>
+                        <li><a href="#activities">Aktivitas</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Destinasi Populer</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gunung Rinjani</a></li>
+                        <li><a href="#">Gunung Bromo</a></li>
+                        <li><a href="#">Gunung Semeru</a></li>
+                        <li><a href="#">Gunung Kerinci</a></li>
+                        <li><a href="#">Gunung Prau</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Berlangganan untuk mendapatkan informasi terbaru tentang destinasi, promo, dan tips petualangan.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <button type="submit" class="cta-button">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MountainExplorer. Hak Cipta Dilindungi. | Petualangan Dimulai dari Sini</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.');
+            contactForm.reset();
+        });
+
+        // Newsletter subscription
+        const newsletterForm = document.querySelector('.footer-col form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            if (emailInput.value) {
+                alert('Terima kasih telah berlangganan newsletter kami!');
+                emailInput.value = '';
+            }
+        });
+    </script>
+</body>
 </html>
